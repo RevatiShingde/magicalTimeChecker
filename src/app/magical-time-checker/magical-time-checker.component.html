@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>Magical Time Checker</h1>
+                </div>
+                <form (ngSubmit)="TimeSubmit()">
+                    <label for="startTime">Start Time : </label>
+                    <input type="text" id="startTime" name="startTime" [(ngModel)]="startTime" placeholder="HH:MM:SS" required pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]">
+                    <br>
+                    <label for="endTime">End Time : </label>
+                    <input type="text" id="endTime" name="endTime" [(ngModel)]="endTime" placeholder="HH:MM:SS" required pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]">
+                    <br>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="resultVisible">
+  <h2>Magical Times : </h2>
+  <ul>
+    <li *ngFor="let time of magicalTimes">{{ time }}</li>
+  </ul>
+</div>
